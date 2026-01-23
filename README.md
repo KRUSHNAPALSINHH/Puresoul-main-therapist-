@@ -8,15 +8,17 @@ The heart of Puresoul AI is **"Dost"** 🤝 – a compassionate AI therapist per
 ---
 
 ## ✨ Key Features
-- 🔐 **Secure User Authentication** – Sign-up & login with hashed passwords, JWT sessions, and MongoDB Atlas.  
+- 🔐 **Secure User Authentication** – Sign-up & login with hashed passwords, JWT sessions, and a MySQL database.  
+- 💳 **User Credit System** – Managed access via a credit-based system. Users start with 12 credits and can purchase more.
 - 💬 **AI-Powered Therapy Chat** – Real-time empathetic conversations powered by **Groq LPU Inference Engine** ⚡.  
+- 📊 **Wellness Dashboard** – Track your interactions and manage your profile.
 - 🌐 **Adaptive Language Persona** – Detects English vs Hinglish and responds naturally.  
 - 🎙️ **Voice-to-Voice Interaction**  
   - 🗣️ Speech-to-Text via Web Speech API  
   - 🔊 Text-to-Speech via **ElevenLabs** realistic voices  
 - 😊 **Real-Time Emotion Detection**  
-  - Uses **Google MediaPipe Face Landmarker**  
-  - Collects 10 readings → finds dominant emotion  
+  - Uses **Google MediaPipe Face Landmarker** & **TensorFlow.js**
+  - Collects readings → finds dominant emotion  
   - Smart popup with a choice to start a therapy session  
 
 ---
@@ -24,16 +26,17 @@ The heart of Puresoul AI is **"Dost"** 🤝 – a compassionate AI therapist per
 ## 🛠️ Tech Stack
 
 ### 🎨 Frontend
-- ⚛️ React + React Router  
-- 🎬 Framer Motion (animations)  
-- 🖌️ Tailwind CSS  
-- 🔗 React Context API (state management)  
-- 🎯 Lucide React (icons)  
+- ⚛️ **React** + **Vite**
+- 🎬 **Framer Motion** & **GSAP** (animations)  
+- 🖌️ **Tailwind CSS**  
+- 🔗 **React Context API** (state management)  
+- 📈 **Recharts** (data visualization)
+- 🎯 **Lucide React** (icons)  
 
 ### ⚙️ Backend
-- 🌐 Node.js + Express  
-- 🗄️ MongoDB Atlas (Mongoose ORM)  
-- 🔑 JWT Authentication + bcrypt password hashing  
+- 🐍 **Python** + **Flask**
+- 🗄️ **MySQL** (SQLAlchemy ORM)  
+- 🔑 **JWT Authentication** + **bcrypt** password hashing  
 
 ### 🤖 AI & External Services
 - ⚡ **Groq** – Ultra-low-latency LPU inference engine  
@@ -47,8 +50,8 @@ The heart of Puresoul AI is **"Dost"** 🤝 – a compassionate AI therapist per
 ### ✅ Prerequisites
 Make sure you have:  
 - [Node.js](https://nodejs.org/) v18+  
-- [Git](https://git-scm.com/)  
-- A **MongoDB Atlas** account  
+- [Python](https://www.python.org/) 3.10+
+- [MySQL Server](https://dev.mysql.com/downloads/installer/)
 - A **Groq AI** API key  
 - An **ElevenLabs** API key  
 
@@ -60,60 +63,65 @@ Make sure you have:
 ```bash
 git clone https://github.com/your-username/puresoul-ai.git
 cd puresoul-ai
-2️⃣ Backend Setup
+```
 
-bash
-Copy code
+2️⃣ **Backend Setup**
+```bash
 cd server
-npm install
-Create .env file in server/:
+pip install -r requirements.txt
+```
 
-env
-Copy code
-MONGO_URI=mongodb+srv://user:<password>@cluster.mongodb.net/puresouldb
+Create a `.env` file in `server/`:
+```env
+SQLALCHEMY_DATABASE_URI=mysql+pymysql://username:password@localhost/puresoul_db
 JWT_SECRET=your_super_long_secret
 GROQ_API_KEY=your_groq_api_key_here
 ELEVEN_API_KEY=your_elevenlabs_api_key_here
-3️⃣ Frontend Setup
+PORT=5000
+```
 
-bash
-Copy code
+3️⃣ **Frontend Setup**
+```bash
 cd ..
 npm install
-4️⃣ Run the App
+```
+
+4️⃣ **Run the App**
 Open two terminals:
 
-Terminal 1 → Backend:
-
-bash
-Copy code
+**Terminal 1 → Backend:**
+```bash
 cd server
-node server.js
-Terminal 2 → Frontend:
+python app.py
+```
 
-bash
-Copy code
+**Terminal 2 → Frontend:**
+```bash
 npm run dev
-App will run at 👉 http://localhost:5173
+```
+App will run at 👉 [http://localhost:5173](http://localhost:5173)
 
-🎥 How to Use
-✍️ Sign Up / Log In → Secure account creation.
+---
 
-📸 Emotion Detection → Allow camera → App analyzes expressions.
+## 🎥 How to Use
+1. **Sign Up / Log In** → Secure account creation with 12 free credits.
+2. **Emotion Detection** → Allow camera access to let the app analyze your mood.
+3. **Popup Prompt** → Dost will check in based on your dominant emotion.
+4. **Therapy Session** → Chat with Dost via text 🎹 or voice 🎙️. Each response uses 1 credit.
+5. **Dashboard** → View your usage stats and manage your credits.
 
-😌 Popup Prompt → Based on dominant emotion.
+---
 
-🗣️ Therapy Session → Chat with Dost via text 🎹 or voice 🎙️.
+## 📦 Core Dependencies
+| Category | Packages |
+| :--- | :--- |
+| **Frontend** | React, Tailwind, Framer Motion, GSAP, Recharts, Lucide |
+| **Backend** | Flask, Flask-SQLAlchemy, PyMySQL, bcrypt, PyJWT |
+| **AI / APIs** | Groq, ElevenLabs, Google MediaPipe, TensorFlow.js |
 
-🔊 Voice Response → Dost replies with text + realistic speech.
+---
 
-📦 Dependencies
-Category	Packages
-Frontend	React, Tailwind, Framer Motion, Lucide React
-Backend	Express, Mongoose, bcrypt.js, JWT
-AI / APIs	Groq, ElevenLabs, Google MediaPipe
-
-🤝 Contributing
-Contributions are welcome! 🎉
+## 🤝 Contributing
+Contributions are welcome! 🎉  
 Fork → Branch → Commit → Push → PR
 
