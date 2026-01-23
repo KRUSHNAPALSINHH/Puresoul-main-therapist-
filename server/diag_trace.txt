@@ -1,0 +1,691 @@
+python : Traceback 
+(most recent call 
+last):
+At line:1 char:1
++ python diag_reg.py 
+2>&1 | Out-File 
+-FilePath 
+diag_trace.txt 
+-Encoding ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Traceback    
+ (most recent call    
+ last)::String) [    
+], RemoteExceptio    n
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1967, in 
+_exec_single_context
+    self.dialect.do_ex
+ecute(
+    ~~~~~~~~~~~~~~~~~~
+~~~~~^
+        cursor, 
+str_statement, 
+effective_parameters, 
+context
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\default.py",
+ line 924, in 
+do_execute
+    cursor.execute(sta
+tement, parameters)
+    ~~~~~~~~~~~~~~^^^^
+^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+cursors.py", line 
+153, in execute
+    result = 
+self._query(query)
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+cursors.py", line 
+322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+575, in query
+    
+self._affected_rows = 
+self._read_query_resul
+t(unbuffered=unbuffere
+d)
+                      
+    ~~~~~~~~~~~~~~~~~~
+~~~~~^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+826, in 
+_read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+1203, in read
+    first_packet = sel
+f.connection._read_pac
+ket()
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+782, in _read_packet
+    packet.raise_for_e
+rror()
+    ~~~~~~~~~~~~~~~~~~
+~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+protocol.py", line 
+219, in 
+raise_for_error
+    err.raise_mysql_ex
+ception(self._data)
+    ~~~~~~~~~~~~~~~~~~
+~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+err.py", line 150, in 
+raise_mysql_exception
+    raise 
+errorclass(errno, 
+errval)
+pymysql.err.IntegrityE
+rror: (1062, 
+"Duplicate entry 
+'test@example.com' 
+for key 
+'users.email'")
+
+The above exception 
+was the direct cause 
+of the following 
+exception:
+
+Traceback (most 
+recent call last):
+  File "D:\puresoulai-
+therapist-main\server\
+diag_reg.py", line 
+21, in <module>
+    
+db.session.commit()
+    
+~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\scoping.py", 
+line 597, in commit
+    return 
+self._proxied.commit()
+           
+~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 2017, in commit
+    trans.commit(_to_r
+oot=True)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^
+  File "<string>", 
+line 2, in commit
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\state_changes.p
+y", line 139, in _go
+    ret_value = 
+fn(self, *arg, **kw)
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 1302, in commit
+    
+self._prepare_impl()
+    
+~~~~~~~~~~~~~~~~~~^^
+  File "<string>", 
+line 2, in 
+_prepare_impl
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\state_changes.p
+y", line 139, in _go
+    ret_value = 
+fn(self, *arg, **kw)
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 1277, in 
+_prepare_impl
+    
+self.session.flush()
+    
+~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 4341, in flush
+    
+self._flush(objects)
+    
+~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 4476, in _flush
+    with 
+util.safe_reraise():
+         
+~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\util\langhelpers.py
+", line 146, in 
+__exit__
+    raise exc_value.wi
+th_traceback(exc_tb)
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\session.py", 
+line 4437, in _flush
+    flush_context.exec
+ute()
+    ~~~~~~~~~~~~~~~~~~
+~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\unitofwork.py",
+ line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\unitofwork.py",
+ line 642, in execute
+    util.preloaded.orm
+_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for
+_mapper_hierarchy(self
+.mapper, False, 
+False),
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\persistence.py"
+, line 93, in save_obj
+    _emit_insert_state
+ments(
+    ~~~~~~~~~~~~~~~~~~
+~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\orm\persistence.py"
+, line 1233, in _emit_
+insert_statements
+    result = 
+connection.execute(
+        statement,
+        params,
+        execution_opti
+ons=execution_options,
+    )
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1418, in execute
+    return meth(
+        self,
+        
+distilled_parameters,
+        
+execution_options or 
+NO_OPTIONS,
+    )
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\sql\elements.py", 
+line 515, in 
+_execute_on_connection
+    return connection.
+_execute_clauseelement
+(
+           ~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+^
+        self, 
+distilled_params, 
+execution_options
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1640, in 
+_execute_clauseelement
+    ret = 
+self._execute_context(
+        dialect,
+    ...<8 lines>...
+        
+cache_hit=cache_hit,
+    )
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1846, in 
+_execute_context
+    return self._exec_
+single_context(
+           ~~~~~~~~~~~
+~~~~~~~~~~~~~~^
+        dialect, 
+context, statement, 
+parameters
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1986, in 
+_exec_single_context
+    self._handle_dbapi
+_exception(
+    ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~^
+        e, 
+str_statement, 
+effective_parameters, 
+cursor, context
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
+Attempting to create a test user...
+Error caught!
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 2353, in _handle_
+dbapi_exception
+    raise sqlalchemy_e
+xception.with_tracebac
+k(exc_info[2]) from e
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\base.py", 
+line 1967, in 
+_exec_single_context
+    self.dialect.do_ex
+ecute(
+    ~~~~~~~~~~~~~~~~~~
+~~~~~^
+        cursor, 
+str_statement, 
+effective_parameters, 
+context
+        ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\sqlalche
+my\engine\default.py",
+ line 924, in 
+do_execute
+    cursor.execute(sta
+tement, parameters)
+    ~~~~~~~~~~~~~~^^^^
+^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+cursors.py", line 
+153, in execute
+    result = 
+self._query(query)
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+cursors.py", line 
+322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+575, in query
+    
+self._affected_rows = 
+self._read_query_resul
+t(unbuffered=unbuffere
+d)
+                      
+    ~~~~~~~~~~~~~~~~~~
+~~~~~^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+826, in 
+_read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+1203, in read
+    first_packet = sel
+f.connection._read_pac
+ket()
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+connections.py", line 
+782, in _read_packet
+    packet.raise_for_e
+rror()
+    ~~~~~~~~~~~~~~~~~~
+~~~~^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+protocol.py", line 
+219, in 
+raise_for_error
+    err.raise_mysql_ex
+ception(self._data)
+    ~~~~~~~~~~~~~~~~~~
+~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Dell\
+AppData\Local\Packages
+\PythonSoftwareFoundat
+ion.Python.3.13_qbz5n2
+kfra8p0\LocalCache\loc
+al-packages\Python313\
+site-packages\pymysql\
+err.py", line 150, in 
+raise_mysql_exception
+    raise 
+errorclass(errno, 
+errval)
+sqlalchemy.exc.Integri
+tyError: (pymysql.err.
+IntegrityError) 
+(1062, "Duplicate 
+entry 
+'test@example.com' 
+for key 
+'users.email'")
+[SQL: INSERT INTO 
+users (name, email, 
+username, password, 
+credits, 
+total_credits_earned, 
+created_at, 
+updated_at) VALUES 
+(%(name)s, %(email)s, 
+%(username)s, 
+%(password)s, 
+%(credits)s, %(total_c
+redits_earned)s, 
+%(created_at)s, 
+%(updated_at)s)]
+[parameters: {'name': 
+'Test User', 'email': 
+'test@example.com', 
+'username': 
+'testuser', 
+'password': '$2b$10$C/
+MnyAwyLJ5.q27sNqbqvunL
+GyyAa07SekDJB.7l7C/UNS
+Yz5zsru', 'credits': 
+100, 'total_credits_ea
+rned': 0, 
+'created_at': datetime
+.datetime(2026, 1, 
+22, 11, 53, 15, 
+400440), 
+'updated_at': datetime
+.datetime(2026, 1, 
+22, 11, 53, 15, 
+400445)}]
+(Background on this 
+error at: https://sqla
+lche.me/e/20/gkpj)
