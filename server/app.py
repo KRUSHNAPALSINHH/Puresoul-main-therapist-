@@ -1,9 +1,10 @@
 # server/app.py - Flask Backend for Puresoul AI Therapist (MySQL Version)
 
 import os
+import io
 import re
 from datetime import datetime, timedelta
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response,send_file
 from flask_cors import CORS
 from sqlalchemy import or_
 import bcrypt
@@ -14,6 +15,7 @@ from elevenlabs import ElevenLabs
 
 from validation import validate_email, validate_username, validate_password
 from models import db, User
+print("🔥 RUNNING UPDATED app.py FILE 🔥")
 
 # Load environment variables
 load_dotenv()
@@ -31,7 +33,13 @@ db.init_app(app)
 
 # Initialize API clients
 groq_client = Groq(api_key=os.getenv('GROQ_API_KEY'))
-elevenlabs_client = ElevenLabs(api_key=os.getenv('ELEVEN_API_KEY'))
+ELEVENLABS_API_KEY = os.getenv("ELEVEN_API_KEY")
+
+if not ELEVENLABS_API_KEY:
+    raise RuntimeError("ELEVENLABS_API_KEY is not set")
+
+elevenlabs_client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+
 
 from functools import wraps
 
@@ -335,37 +343,36 @@ NO asterisks (*).
         print(f"Error calling Groq API: {e}")
         return jsonify({'error': 'Failed to get a response from the AI.'}), 500
 
-
 @app.route('/api/text-to-speech', methods=['POST'])
 def text_to_speech():
-    """Text-to-speech endpoint using ElevenLabs API."""
     try:
         data = request.get_json()
         text = data.get('text', '')
 
         if not text:
-            return jsonify({'error': 'Text is required.'}), 400
+            return jsonify({'error': 'Text is required'}), 400
 
-        # Clean text - remove asterisks and emojis
         cleaned_text = re.sub(r'\*.*?\*', '', text)
         cleaned_text = re.sub(r'[\U0001F600-\U0001F64F]', '', cleaned_text)
 
-        # Generate audio using ElevenLabs
-        audio_generator = elevenlabs_client.generate(
-            voice="21m00Tcm4TlvDq8ikWAM",
-            text=cleaned_text,
-            model="eleven_multilingual_v2"
+        audio_stream = elevenlabs_client.text_to_speech.convert(
+            voice_id="21m00Tcm4TlvDq8ikWAM",
+            model_id="eleven_multilingual_v2",
+            text=cleaned_text
         )
 
-        def generate():
-            for chunk in audio_generator:
-                yield chunk
+        audio_bytes = b"".join(audio_stream)
 
-        return Response(generate(), mimetype='audio/mpeg')
+        return send_file(
+            io.BytesIO(audio_bytes),
+            mimetype="audio/mpeg",
+            as_attachment=False
+        )
 
     except Exception as e:
-        print(f"Error generating speech: {e}")
-        return jsonify({'error': 'Failed to generate speech.'}), 500
+        print("Error generating speech:", e)
+        return jsonify({'error': 'Failed to generate speech'}), 500
+
 
 
 # ============== START SERVER ==============
